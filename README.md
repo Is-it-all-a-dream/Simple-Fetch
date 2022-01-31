@@ -11,8 +11,6 @@ let RANDCOLOUR=31+$RAND%6
 
 export COLOUR="\\e[1;${RANDCOLOUR}m"
 
-xrdb -merge .Xresources 
-
 PS1="\e[1;100m${COLOUR}[kali@\w] \$ \e[m"
 
 These choose a random colour each time a terminal is started, and makes the prompt, title, and info that colour.
