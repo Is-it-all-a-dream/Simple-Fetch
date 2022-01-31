@@ -1,0 +1,21 @@
+#!/bin/bash
+./title
+. /etc/os-release
+UPTIME=$(uptime -p | sed -e 's/^up //')
+STORAGE=$(df / |awk '/vdb/ {print $5}')
+DATE=$(date)
+DIM='\e[2m'
+#COLOUR='\e[1;31m'
+COLOUR2='\e[1;36m'
+END='\e[0m'
+PWD=$(pwd)
+BLINK='\e[5m'
+BAC='\e[100m'
+printf "${COLOUR}${DIM}${BAC}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${END}\n"
+printf "${COLOUR}${DIM}${BAC}|${END}${BAC}${COLOUR2}  .~. ${END}${BAC}${COLOUR}Storage <>${END}${BAC} %-40s${COLOUR}${DIM}|${END}\n" "${STORAGE}"
+printf "${COLOUR}${DIM}${BAC}|${END}${BAC}${COLOUR2}  /V\\  ${END}${BAC}${COLOUR}Uptime <>${END}${BAC} %-40s${COLOUR}${DIM}|${END}\n" "${UPTIME}"
+printf "${COLOUR}${DIM}${BAC}|${END}${BAC}${COLOUR2} // \\\\\  ${END}${BAC}${COLOUR}SHELL <>${END}${BAC} %-40s${COLOUR}${DIM}|${END}\n" "${SHELL}"
+printf "${COLOUR}${DIM}${BAC}|${END}${BAC}${COLOUR2}/(   )\\  ${END}${BAC}${COLOUR}DATE <>${END}${BAC} %-40s${COLOUR}${DIM}|${END}\n" "${DATE}"
+printf "${COLOUR}${DIM}${BAC}|${END}${BAC}${COLOUR2}  ^-^      ${END}${BAC}${COLOUR}OS <>${END}${BAC} %-40s${COLOUR}${DIM}|${END}\n" "${PRETTY_NAME}"
+printf "${COLOUR}${DIM}${BAC}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${END}\n"
+echo
